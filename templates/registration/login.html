@@ -1,0 +1,16 @@
+{% extends '_base.html' %}
+
+{% block page_title %}
+    Login
+{% endblock page_title %}
+
+{% block content %}
+    <div class="container mt-3">
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="btn btn-success" type="submit" value="Log In">
+            <input type="hidden" name="next" value="{{ next }}">
+        </form>
+    </div>
+{% endblock content %}
